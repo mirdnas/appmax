@@ -18,6 +18,10 @@
                                 <breeze-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </breeze-nav-link>
+
+                                <breeze-nav-link :href="route('products')" :active="route().current('products')">
+                                    Products
+                                </breeze-nav-link>
                             </div>
                         </div>
 
