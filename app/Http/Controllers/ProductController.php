@@ -43,6 +43,7 @@ class ProductController extends Controller
         $product->sku = 'ap-'.rand();
         $product->price = $request->price;
         $product->quantity = $request->quantity;
+        $product->add_api = ($name_route == 'api.adicionar-produtos') ? true : false;
         $product->save();
         return response()->json(array('success' => true, 'last_insert_id' => $product->id), 200);
     }

@@ -34,5 +34,9 @@ class Product extends Model
         'sku',
         'price',
         'quantity',
+        'active',
+        'excluded',
+        'remove_api',
+        'add_api',
     ];
 }
