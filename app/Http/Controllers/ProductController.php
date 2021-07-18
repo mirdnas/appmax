@@ -36,11 +36,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $name_route =  $request->route()->getName();
+
         $product = new Product();
         $product->name = $request->name;
+        $product->sku = 'ap-'.rand();
         $product->price = $request->price;
         $product->quantity = $request->quantity;
         $product->save();
+        return response()->json(array('success' => true, 'last_insert_id' => $product->id), 200);
     }
 
     /**
