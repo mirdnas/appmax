@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,9 +29,13 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::resource('products', ProductController::class );
+// ->missing(function (Request $request) {
+//     return Redirect::route('products.index');
+// });;
 
-Route::get('/products', function () {
-    return Inertia::render('Products');
-})->middleware(['auth', 'verified'])->name('products');
+// Route::get('/products', function () {
+//     return Inertia::render('Products');
+// })->middleware(['auth', 'verified'])->name('products');
 
 require __DIR__.'/auth.php';
